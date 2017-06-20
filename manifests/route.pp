@@ -142,7 +142,7 @@ define network::route (
         group   => 'root',
         path    => "/etc/sysconfig/network-scripts/route-${name}",
         content => template('network/route-RedHat.erb'),
-        notify  => $network::manage_config_file_notify,
+        #notify  => $network::manage_config_file_notify,
       }
     }
     'Suse': {
@@ -153,7 +153,7 @@ define network::route (
         group   => 'root',
         path    => "/etc/sysconfig/network/ifroute-${name}",
         content => template('network/route-Suse.erb'),
-        notify  => $network::manage_config_file_notify,
+        #notify  => $network::manage_config_file_notify,
       }
     }
     'Debian': {
@@ -164,7 +164,7 @@ define network::route (
         group   => 'root',
         path    => "/etc/network/if-up.d/z90-route-${name}",
         content => template('network/route_up-Debian.erb'),
-        notify  => $network::manage_config_file_notify,
+        #notify  => $network::manage_config_file_notify,
       }
       file { "routedown-${name}":
         ensure  => $ensure,
@@ -173,7 +173,7 @@ define network::route (
         group   => 'root',
         path    => "/etc/network/if-down.d/z90-route-${name}",
         content => template('network/route_down-Debian.erb'),
-        notify  => $network::manage_config_file_notify,
+        #notify  => $network::manage_config_file_notify,
       }
     }
     default: { fail('Operating system not supported')  }
