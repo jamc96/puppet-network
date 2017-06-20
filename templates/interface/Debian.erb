@@ -30,12 +30,12 @@ allow-hotplug <%= @interface %>
 <% if @mtu -%>
     mtu <%= @mtu %>
 <% end -%>
-<% if @dns_nameservers -%>
+<!--<% if @dns_nameservers -%>
     dns-nameservers <%= @dns_nameservers %>
-<% end -%>
+<% end -%> 
 <% if @dns_search -%>
     dns-search <%= @dns_search %>
-<% end -%>
+<% end -%>  -->
 <% if @gateway -%>
     gateway <%= @gateway %>
 <% end -%>
@@ -231,4 +231,3 @@ allow-hotplug <%= @interface %>
 <% if @wpa_ap_scan -%>
     wpa-ap-scan <%= @wpa_ap_scan %>
 <% end -%>
-
