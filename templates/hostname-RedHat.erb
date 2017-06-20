@@ -1,7 +1,7 @@
-HOSTNAME=<%= @manage_hostname.split('.').first %>
-NETWORKING=yes
+# File Managed by Puppet
+NETWORKING="yes"
 <% if @gateway -%>
-GATEWAY=<%= @gateway %>
+GATEWAY="<%= @gateway %>"
 <% end -%>
 <% if @nozeroconf -%>
 NOZEROCONF="<%= @nozeroconf %>"
@@ -10,3 +10,4 @@ NOZEROCONF="<%= @nozeroconf %>"
 NETWORKING_IPV6="<%= @ipv6enable %>"
 IPV6INIT="<%= @ipv6enable %>"
 <% end -%>
+HOSTNAME="<%= @manage_hostname.split('.').first %>"
