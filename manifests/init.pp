@@ -259,7 +259,7 @@ class network (
   if $::osfamily == 'RedHat'
   and $network::gateway {
     file { '/etc/sysconfig/network':
-      ensure  => file,
+      ensure  => $config_file_ensure,
       mode    => $config_file_mode,
       owner   => $config_file_owner,
       group   => $config_file_group,

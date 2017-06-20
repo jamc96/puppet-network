@@ -311,9 +311,9 @@ define network::interface (
   $peerntp               = '',
   $onboot                = '',
   $defroute              = undef,
-  $dns1                  = undef,
-  $dns2                  = undef,
-  $domain                = undef,
+  #dns1                  = undef,
+  #dns2                  = undef,
+  #domain                = undef,
   $nm_controlled         = undef,
   $master                = undef,
   $slave                 = undef,
@@ -596,8 +596,8 @@ define network::interface (
             ensure => 'present',
           }
         }
-        Package['vlan'] ->
-        File["/etc/sysconfig/network/ifcfg-${name}"]
+        Package['vlan']
+        -> File["/etc/sysconfig/network/ifcfg-${name}"]
       }
       if $bridge {
         if !defined(Package['bridge-utils']) {
@@ -605,8 +605,8 @@ define network::interface (
             ensure => 'present',
           }
         }
-        Package['bridge-utils'] ->
-        File["/etc/sysconfig/network/ifcfg-${name}"]
+        Package['bridge-utils']
+        -> File["/etc/sysconfig/network/ifcfg-${name}"]
       }
 
       file { "/etc/sysconfig/network/ifcfg-${name}":
