@@ -264,7 +264,7 @@ class network (
       owner   => $config_file_owner,
       group   => $config_file_group,
       content => template($network::hostname_file_template),
-      #notify  => $network::manage_config_file_notify,
+      notify  => $network::manage_config_file_notify,
     }
     case $::lsbmajdistrelease {
       '7': {
